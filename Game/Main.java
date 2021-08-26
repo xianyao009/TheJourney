@@ -1,6 +1,6 @@
 import java.util.*;
 
-public class TheJourney{
+public class Main{
 
     static void introduction(){
         System.out.println("Welcome to The Journey. Please enjoy the game!\n");
