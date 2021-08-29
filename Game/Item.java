@@ -1,22 +1,23 @@
 public class Item{
-    String name;
-    String type;
-    String rarity;
-    String details;
+    String name; 
+    String type; 
+    String rarity; 
+    String description; 
 
-    public Item(String name, String type, String rarity, String details){
+    public Item(String name, String type, String rarity, String description){
         this.name = name;
         this.type = type;
         this.rarity = rarity;
-        this.details = details;
+        this.description = description;
     }
 
     public void printInfo(){
-        System.out.println("\n~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
         System.out.println("Item Info");
+        System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
         System.out.println("Item name: " + name);
+        System.out.println("Item description: " + description);
         System.out.println("Item type: " + type);
         System.out.println("Rarity: " + rarity);
-        System.out.println("Item description: " + details);
+        System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n");
     }
 }

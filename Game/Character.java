@@ -1,13 +1,8 @@
 public class Character extends LivingThing{
-    int attack;
-    int attackSpeed;
-    int defense;
     String charClass;
 
-
-
-    public Character(String name, String type, int level, int health, Weapon weapon, Armor armor){
-        super(name, type, level, health);
+    public Character(String name, String race, int level, int health, int attack, int attackSpeed, int defense, Weapon weapon, Armor armor){
+        super(name, race, level, health, attack, attackSpeed, defense);
         this.attack = weapon.attack;
         this.attackSpeed = weapon.attackSpeed;
         this.defense = armor.defense;
@@ -23,8 +18,14 @@ public class Character extends LivingThing{
         this.defense = armor.defense;
     }
 
-    public void characterInfo(){
-        printInfo();
+    @Override
+    public void printInfo(){
+        System.out.println("Character Info");
+        System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
+        System.out.println("Name: " + name);
+        System.out.println("Race: " + race);
+        System.out.println("Level: " + level);
+        System.out.println("Health: " + health);
         System.out.println("Attack: " + attack);
         System.out.println("Attack speed: " + attackSpeed);
         System.out.println("Defense: " + defense);

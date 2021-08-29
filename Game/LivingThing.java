@@ -1,23 +1,33 @@
 public class LivingThing{
     String name;
-    String type;
+    String race;
     int level;
     int health;
+    int attack;
+    int attackSpeed;
+    int defense;
 
 
-    public LivingThing(String name, String type, int level, int health){
+    public LivingThing(String name, String race, int level, int health, int attack, int attackSpeed, int defense){
         this.name = name;
-        this.type = type;
+        this.race = race;
         this.level = level;
         this.health = health;
+        this.attack = attack;
+        this.attackSpeed = attackSpeed;
+        this.defense = defense;
     }
 
     public void printInfo(){
-        System.out.println("\n~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
         System.out.println("Info");
+        System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
         System.out.println("Name: " + name);
-        System.out.println("Type: " + type);
+        System.out.println("Race: " + race);
         System.out.println("Level: " + level);
         System.out.println("Health: " + health);
+        System.out.println("Attack: " + attack);
+        System.out.println("Attack speed: " + attackSpeed);
+        System.out.println("Defense: " + defense);
+        System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n");
     }
 }
