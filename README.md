@@ -1,6 +1,6 @@
 # The Journey
 
-## Table of Contents
+### Table of Contents
  - [Introduction](#Introduction)
  - [Stat Introduction](#stat-introduction)
 
