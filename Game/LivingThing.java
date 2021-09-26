@@ -6,17 +6,19 @@ public class LivingThing{
     int attack;
     int attackSpeed;
     int defense;
+	boolean alive;
 
 
-    public LivingThing(String name, String race, int level, int health, int attack, int attackSpeed, int defense){
-        this.name = name;
-        this.race = race;
-        this.level = level;
-        this.health = health;
-        this.attack = attack;
-        this.attackSpeed = attackSpeed;
-        this.defense = defense;
-    }
+    // public LivingThing(String name, String race, int level, int health, int attack, int attackSpeed, int defense){
+        // this.name = name;
+        // this.race = race;
+        // this.level = level;
+        // this.health = health;
+        // this.attack = attack;
+        // this.attackSpeed = attackSpeed;
+        // this.defense = defense;
+		// this.alive = true;
+    // }
 
     public void printInfo(){
         System.out.println("Info");

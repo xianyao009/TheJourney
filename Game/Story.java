@@ -1,16 +1,45 @@
-
-
-public class Main{
-	Story story = new Story(this);
-
-    // static void introduction(){
+import java.util.*;
+public class Story{
+	Main main;
+	static Character character = new Character();
+	// Monster monster = new Monster();
+	
+	public Story(Main main){
+		this.main = main;
+	}
+	
+	static void introduction(){
+		String text1 = "Welcome to The Journey, a text-based adventure game created by Xian Yao Ng.\nFirst, please tell me your name.\nName: ";
+		for(char c : text1.toCharArray()){
+			System.out.print(c);
+			delay();
+		}
+		Scanner scan = new Scanner(System.in);
+		character.name = scan.nextLine();
+		String text2 = "Nice name! Your journey starts here and please enjoy the game!\n";
+		System.out.println("Hi " + character.name + "!");
+		for(char c : text2.toCharArray()){
+			System.out.print(c);
+			delay();
+		}
         // System.out.println("Welcome to The Journey. Please enjoy the game!");
 		// System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
 		// System.out.println("NOTE: YOU CAN ALWAYS ENTER:- ");
         // System.out.println("'s': View your character's stat.\n'w': View your weapon's info.\n'a': view your armor's info." );
-    // }
-
-    // public static void createCharacter(Character character, Weapon weapon, Armor armor){
+    }
+	
+	
+	/* Causes the currently executing thread to sleep temporarily for the specified number of milliseconds
+	   Character in a sentence will appear one by one */
+	static void delay(){
+		try{
+			Thread.sleep(60);    // time interval in milliseconds
+		}catch (InterruptedException e) {
+			e.printStackTrace();
+		}		
+	}
+	
+	// public static void createCharacter(){
         // Scanner scan = new Scanner(System.in);
         // System.out.println("Create your character...");
         // System.out.print("What is your name?: ");
@@ -39,27 +68,4 @@ public class Main{
         // character.equipWeapon(weapon);
         
     // }
-
-    public static void main(String[]args){
-        // introduction();
-        // Weapon weapon = new Weapon("Unknown", "Unknown", "Unknown", "Unknown", 0, 0);
-        // Armor armor = new Armor("Unknown", "Unknown", "Unknown", "Unknown", 0);
-		// Item item = new Item(" ", " "," "," ");
-        // Character char1 = new Character(weapon, armor);
-        // createCharacter(char1, weapon, armor);
-        // Scanner scan = new Scanner(System.in);
-        // char1.printInfo();
-        // weapon.printInfo();
-		// item.printInfo();
-        // armor.printInfo();
-        // Monster mon1 = new Monster(" ", " ", 0, 0, 0, 0, 0);
-        // mon1.name = "Snail";
-        // mon1.race = "aaa";
-        // mon1.printInfo();
-		new Main();
-    }
-	
-	public Main(){
-		story.introduction();
-	}
 }
