@@ -1,7 +1,7 @@
 class Monster extends LivingThing{
 
-    public Monster(String name, String race, int level, int health, int attack, int attackSpeed, int defense){
-        super(name, race, level, health, attack, attackSpeed, defense);
+    public Monster(String name, String race, int level, int health, int attack, int attackSpeed, int defense, boolean combatStatus){
+        super(name, race, level, health, attack, attackSpeed, defense, combatStatus);
     }
 
     @Override

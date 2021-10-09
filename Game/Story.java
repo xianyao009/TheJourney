@@ -1,71 +1,99 @@
 import java.util.*;
+
 public class Story{
 	Main main;
-	static Character character = new Character();
-	// Monster monster = new Monster();
+	String temp = "";	// a temporary variable to store the choice of player
+	String text;	// text to print
+	
+	Character character = new Character(" ", "Human", 1, 10, 999, 999, 0, false, "Civilian");
+	EquipmentTab equipment = new EquipmentTab(character);
+	
+	Weapon sword = new Weapon("Sword", "A sword made of iron", 3, 2);
+	Weapon axe = new Weapon("Axe", "An axe made of iron", 4, 1);
+	
+	Armor plateArmour = new Armor("Steel plate armour", "A Plate armour made of steel.", 10);
+	
+	Monster goblin = new Monster("Green Goblin", "Goblin", 1, 10, 2, 1, 1, false);
+	
 	
 	public Story(Main main){
 		this.main = main;
 	}
-	
-	static void introduction(){
-		String text1 = "Welcome to The Journey, a text-based adventure game created by Xian Yao Ng.\nFirst, please tell me your name.\nName: ";
-		for(char c : text1.toCharArray()){
-			System.out.print(c);
-			delay();
-		}
+
+	// Introduction of the game
+	public void introduction(){
 		Scanner scan = new Scanner(System.in);
+		
+		text = "Welcome to The Journey, a text-based adventure game created by Xian Yao Ng.\nFirst, please tell me your name.\nName: ";
+		delayPrint();
 		character.name = scan.nextLine();
-		String text2 = "Nice name! Your journey starts here and please enjoy the game!\n";
-		System.out.println("Hi " + character.name + "!");
-		for(char c : text2.toCharArray()){
-			System.out.print(c);
-			delay();
+		text = "\nHi " + character.name + ", nice name! Now pick your weapon!\n";
+		delayPrint();
+		
+		while(true){
+			text = "Do you want a sword or an axe?\nEnter '1' for sword, '2' for axe or '3' to view the stats of the weapons: ";
+			delayPrint();
+			temp = scan.nextLine();
+			if(temp.equals("1") || temp.equals("2")){
+				break;
+			}else if(temp.equals("3")){
+				sword.printInfo();
+				axe.printInfo();
+			}else{
+				System.out.println("\nPlease enter '1', '2' or '3' only!");
+			}
 		}
-        // System.out.println("Welcome to The Journey. Please enjoy the game!");
-		// System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
-		// System.out.println("NOTE: YOU CAN ALWAYS ENTER:- ");
-        // System.out.println("'s': View your character's stat.\n'w': View your weapon's info.\n'a': view your armor's info." );
+		
+		if(temp.equals("1")){
+			equipment.equipWeapon(sword);
+		}else if(temp.equals("2")){
+			equipment.equipWeapon(axe);
+		}
+		
+		text = "\nNice choice! Now, go take some rest. You'll start your journey the next day.";
+		delayPrint();
     }
 	
+	// Main body of the game
+	public void body(){
+		text = ".\n.\n.\n.\n.\n.\n.\n";
+		delayPrintSlower();
+		text = "You encountered a Goblin!";
+		delayPrint();
+		System.out.println("\njk, 2 midterms next week, will come back after the midterm :)");
+		// while(character.health != 0){
+			// Combat combat = new Combat(character, goblin);
+			// combat.start(character, goblin);
+		// }
+		
+	}
 	
 	/* Causes the currently executing thread to sleep temporarily for the specified number of milliseconds
 	   Character in a sentence will appear one by one */
-	static void delay(){
-		try{
-			Thread.sleep(60);    // time interval in milliseconds
-		}catch (InterruptedException e) {
-			e.printStackTrace();
-		}		
+	public void delayPrint(){
+		// System.out.println(text);
+		for(char c : text.toCharArray()){
+			System.out.print(c);
+			try{
+				Thread.sleep(50);    // time interval in milliseconds
+			}catch (InterruptedException e) {
+				e.printStackTrace();
+			}
+		}
+		
 	}
 	
-	// public static void createCharacter(){
-        // Scanner scan = new Scanner(System.in);
-        // System.out.println("Create your character...");
-        // System.out.print("What is your name?: ");
-        // character.name = scan.nextLine();
-        // System.out.println("Hey " + character.name + "! Pick your weapon!");
-        // System.out.print("Enter 1 or 2:\n[1] Sword\n[2] Axe\n");
-        // weapon.name = scan.nextLine();
-        // if(weapon.name.equals("1")){
-            // weapon.name = "Plastic Sword";
-            // weapon.type = "One handed sword";
-            // weapon.rarity = "Common";
-            // weapon.description = "A sword made of plastic.";
-            // weapon.attack = 2;
-            // weapon.attackSpeed = 2;
-            // System.out.println("You obtained Plastic Sword!");
-        // }else if(weapon.name.equals("2")){
-            // weapon.name = "Plastic Axe";
-            // weapon.type = "One handed axe";
-            // weapon.rarity = "Common";
-            // weapon.description = "An axe made of plastic.";
-            // weapon.attack = 3;
-            // weapon.attackSpeed = 1;
-            // System.out.println("You obtained Plastic Axe!");
-        // }
-        
-        // character.equipWeapon(weapon);
-        
-    // }
+	// Longer sleep
+	public void delayPrintSlower(){
+		for(char c : text.toCharArray()){
+			System.out.print(c);
+			try{
+				Thread.sleep(300);    // time interval in milliseconds
+			}catch (InterruptedException e) {
+				e.printStackTrace();
+			}
+		}
+		
+	}
+	
 }

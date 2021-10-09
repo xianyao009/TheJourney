@@ -5,7 +5,7 @@
  - [Stat Introduction](#stat-introduction)
 
 ## Introduction
-The Journey, a basic text-based adventure game project written in Java. The goal with this project was to showcase my knowledge of Java (OOP). The game is still in progress. 
+The Journey, a basic text-based adventure game project written in Java. The goal with this project was to showcase my Java knowledge (OOP). The game is still in progress. 
 
 ## Stat Introduction
 ### Health Points
@@ -19,3 +19,5 @@ Living thing with higher attack speed will attack first.
 
 ### Defense
 Determines the reduction of the amount of damage taken from enemies.
+
+Enjoy!
