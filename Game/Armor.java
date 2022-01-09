@@ -1,18 +1,27 @@
-public class Armor extends Item{
-    int defense; 
+public enum Armor {
+    WHITETSHIRT("White T-shirt", "Common", 1),
+    PLATEARMOUR("Plate armour", "Common", 4),
+    GOLDENPLATEARMOUR("Golden plate armour", "rare", 10);
 
-    public Armor(String name, String description, int defense){
-        super(name, description);
+    private final String name;
+    private final String rarity;
+    private final int defense;
+
+    Armor(final String name, final String rarity, final int defense) {
+        this.name = name;
+        this.rarity = rarity;
         this.defense = defense;
     }
 
-	@Override
-    public void printInfo(){
-        System.out.println("Armor Info");
-        System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
-        System.out.println("Armor name: " + name);
-        System.out.println("Armor description: " + description);
-        System.out.println("Defense: " + defense);
-        System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n");
+    public String getName() {
+        return name;
+    }
+
+    public String getRarity() {
+        return rarity;
+    }
+
+    public int getDefense() {
+        return defense;
     }
 }
