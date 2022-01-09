@@ -1,12 +1,12 @@
-public class Main{
+public class Main {
 	Story story = new Story(this);
 	
-	public Main(){
+	public Main() {
 		story.introduction();
 		story.body();
 	}
 	
-    public static void main(String[]args){
+    public static void main(String[] args) {
 		new Main();
     }
 

@@ -1,21 +1,25 @@
-public class EquipmentTab{
-	Character character;
-	Weapon weapon;
-	Armor armor;
-	
-	public EquipmentTab(Character character){
-		this.character = character;
-	}
-	
-	public void equipWeapon(Weapon weapon){
+public class EquipmentTab {
+	private Weapon weapon;
+	private Armor armor;
+
+	public EquipmentTab(Weapon weapon, Armor armor) {
 		this.weapon = weapon;
-		character.attack = weapon.attack;
-		character.attackSpeed = weapon.attackSpeed;
-	}
-	
-	public void equipArmor(Armor armor){
 		this.armor = armor;
-		character.defense = armor.defense;
 	}
-	
+
+	public Weapon getWeapon() {
+		return weapon;
+	}
+
+	public void setWeapon(Weapon weapon) {
+		this.weapon = weapon;
+	}
+
+	public Armor getArmor() {
+		return armor;
+	}
+
+	public void setArmor(Armor armor) {
+		this.armor = armor;
+	}
 }
