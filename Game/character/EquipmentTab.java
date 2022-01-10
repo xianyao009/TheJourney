@@ -1,3 +1,8 @@
+package character;
+
+import equipment.Armor;
+import equipment.Weapon;
+
 /**
  * Represents an equipment tab (indicate what equipments are the character currently wearing)
  * @author Xian Yao Ng
@@ -7,7 +12,7 @@ public class EquipmentTab {
 	private Armor armor;
 
 	/**
-	 * Creates an EquipmentTab object
+	 * Creates an character.EquipmentTab object
 	 * @param weapon The weapon character currently using
 	 * @param armor The armor character currently wearing
 	 */
@@ -38,8 +43,8 @@ public class EquipmentTab {
 	public void printInfo() {
 		System.out.println("Equipment tab");
 		System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
-		System.out.println("Weapon equipped: " + this.weapon.getName());
-		System.out.println("Armor equipped: " + this.armor.getName());
+		System.out.println("equipment.Weapon equipped: " + this.weapon.getName());
+		System.out.println("equipment.Armor equipped: " + this.armor.getName());
 		System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
 	}
 }

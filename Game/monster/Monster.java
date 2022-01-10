@@ -1,3 +1,5 @@
+package monster;
+
 /**
  * Represent a monster
  * @author Xian Yao Ng
@@ -71,7 +73,7 @@ public enum Monster {
      * Print out the info of monster
      */
     public void printInfo() {
-        System.out.println("Monster Info");
+        System.out.println("monster.Monster Info");
         System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
         System.out.println("Name: " + this.name);
         System.out.println("Species: " + this.species);

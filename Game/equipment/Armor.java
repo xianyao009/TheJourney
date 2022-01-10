@@ -1,3 +1,5 @@
+package equipment;
+
 /**
  * Represents an armor
  * @author Xian Yao Ng
@@ -51,9 +53,9 @@ public enum Armor {
      * Print out the info of armor
      */
     public void printInfo() {
-        System.out.println("Armor Info");
+        System.out.println("equipment.Armor Info");
         System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
-        System.out.println("Armor name: " + this.name);
+        System.out.println("equipment.Armor name: " + this.name);
         System.out.println("Rarity: " + this.rarity);
         System.out.println("Defense: " + this.defense);
         System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");

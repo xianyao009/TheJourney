@@ -1,3 +1,8 @@
+package character;
+
+import equipment.Armor;
+import equipment.Weapon;
+
 /**
  * Represents a character (player)
  * @author Xian Yao Ng
@@ -31,8 +36,8 @@ public class Character {
     }
 
     /**
-     * Character equips the weapon.
-     * Update the weapon object in EquipmentTab
+     * character.Character equips the weapon.
+     * Update the weapon object in character.EquipmentTab
      * Update the attack and attackSpeed according to the stats of weapon equipped
      * @param weapon The weapon object to be equipped
      */
@@ -43,8 +48,8 @@ public class Character {
     }
 
     /**
-     * Character equips the armor.
-     * Update the armor object in EquipmentTab
+     * character.Character equips the armor.
+     * Update the armor object in character.EquipmentTab
      * Update the defense according to the stats of armor equipped
      * @param armor The armor object to be equipped
      */
@@ -137,7 +142,7 @@ public class Character {
      * Print out the info of character
      */
     public void printInfo() {
-        System.out.println("Character Info");
+        System.out.println("character.Character Info");
         System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
         System.out.println("Name: " + name);
         System.out.println("Race: " + race);

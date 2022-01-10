@@ -1,7 +1,12 @@
+package main;
+
+import character.Character;
+import equipment.Weapon;
+
 import java.util.*;
 
 /**
- * Main story line of game
+ * Main.Main story line of game
  * @author Xian Yao Ng
  */
 public class Story {
@@ -51,19 +56,19 @@ public class Story {
 		delayPrint(50);
     }
 	
-	// Main body of the game
+	// Main.Main body of the game
 	public void body() {
 		text = ".\n.\n.\n.\n.\n.\n.\n";
 		delayPrint(250);
 		text = "You encountered a Goblin!";
 		delayPrint(50);
-		System.out.println("\nWill implement the Battle class soon....");
+		System.out.println("\nWill implement the Combat.Battle class soon....");
 		
 	}
 
 	/**
 	 * Causes the currently executing thread to sleep temporarily for the specified number of milliseconds.
-	 * Character in a sentence will appear one by one, rather than appearing every single words at once.
+	 * character.Character in a sentence will appear one by one, rather than appearing every single words at once.
 	 * @param ms The time interval in milliseconds
 	 */
 	public void delayPrint(int ms) {

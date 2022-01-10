@@ -1,3 +1,5 @@
+package combat;
+
 /**
  * @author Xian Yao Ng
  */
