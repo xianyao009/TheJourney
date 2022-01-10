@@ -1,3 +1,7 @@
+/**
+ * Main class to run the program
+ * @author Xian Yao Ng
+ */
 public class Main {
 	Story story = new Story(this);
 	

@@ -1,3 +1,7 @@
+/**
+ * Represents a character (player)
+ * @author Xian Yao Ng
+ */
 public class Character {
     private EquipmentTab equipmentTab;
     private Inventory inventory;
@@ -10,6 +14,9 @@ public class Character {
     private int defense;
     private int attackSpeed;
 
+    /**
+     * Creates a character object
+     */
     public Character() {
         this.equipmentTab = new EquipmentTab(null, null);
         this.inventory = new Inventory();
@@ -23,12 +30,24 @@ public class Character {
         this.attackSpeed = 0;
     }
 
+    /**
+     * Character equips the weapon.
+     * Update the weapon object in EquipmentTab
+     * Update the attack and attackSpeed according to the stats of weapon equipped
+     * @param weapon The weapon object to be equipped
+     */
     public void equipWeapon(Weapon weapon) {
         this.equipmentTab.setWeapon(weapon);
         this.attack = weapon.getAttack();
         this.attackSpeed = weapon.getAttackSpeed();
     }
 
+    /**
+     * Character equips the armor.
+     * Update the armor object in EquipmentTab
+     * Update the defense according to the stats of armor equipped
+     * @param armor The armor object to be equipped
+     */
     public void equipArmor(Armor armor) {
         this.equipmentTab.setArmor(armor);
         this.defense = armor.getDefense();
@@ -114,6 +133,9 @@ public class Character {
         this.attackSpeed = attackSpeed;
     }
 
+    /**
+     * Print out the info of character
+     */
     public void printInfo() {
         System.out.println("Character Info");
         System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
