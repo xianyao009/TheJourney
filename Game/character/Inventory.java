@@ -70,15 +70,15 @@ public class Inventory {
      */
     public void printInfo() {
         int count = 1;
-        System.out.println("\ncharacter.Inventory");
+        System.out.println("\nInventory");
         System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
-        System.out.println("equipment.Weapon in inventory: ");
+        System.out.println("Weapon in inventory: ");
         for (Weapon  w : weaponList) {
             System.out.println(count + ". " + w.getName());
             count++;
         }
         count = 1;
-        System.out.println("\nequipment.Armor in inventory: ");
+        System.out.println("\nArmor in inventory: ");
         for (Armor  a : armorList) {
             System.out.println(count + "." + a.getName());
             count++;
