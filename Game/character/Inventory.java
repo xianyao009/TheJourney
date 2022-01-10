@@ -1,3 +1,8 @@
+package character;
+
+import equipment.Armor;
+import equipment.Weapon;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -9,9 +14,10 @@ public class Inventory {
     private final List<Weapon> weaponList;
     private final List<Armor> armorList;
     //private List<Potion> potionList;
+    //private List<Usable> usableList;
 
     /**
-     * Creates an Inventory object
+     * Creates an character.Inventory object
      */
     public Inventory() {
         this.weaponList = new ArrayList<>();
@@ -39,6 +45,10 @@ public class Inventory {
 //        return potionList;
 //    }
 
+//    public List<Usable> getUsableList() {
+//        return usableList;
+//    }
+
     /**
      * Add weapon into the inventory (ArrayList)
      * @param weapon The weapon to be added into the inventory (ArrayList)
@@ -60,15 +70,15 @@ public class Inventory {
      */
     public void printInfo() {
         int count = 1;
-        System.out.println("\nInventory");
+        System.out.println("\ncharacter.Inventory");
         System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
-        System.out.println("Weapon in inventory: ");
+        System.out.println("equipment.Weapon in inventory: ");
         for (Weapon  w : weaponList) {
             System.out.println(count + ". " + w.getName());
             count++;
         }
         count = 1;
-        System.out.println("\nArmor in inventory: ");
+        System.out.println("\nequipment.Armor in inventory: ");
         for (Armor  a : armorList) {
             System.out.println(count + "." + a.getName());
             count++;
@@ -78,5 +88,9 @@ public class Inventory {
 
 //    public void addPotion(Potion potion) {
 //        this.potionList.add(potion);
+//    }
+
+//    public void addUsable(Usable usable) {
+//        this.usableList.add(usable);
 //    }
 }
