@@ -49,9 +49,9 @@ public enum Weapon {
      * Print out the info of weapon
      */
     public void printInfo() {
-        System.out.println("equipment.Weapon Info");
+        System.out.println("Weapon Info");
         System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
-        System.out.println("equipment.Weapon name: " + this.name);
+        System.out.println("Weapon name: " + this.name);
         System.out.println("Rarity: " + this.rarity);
         System.out.println("Attack: " + this.attack);
         System.out.println("Attack Speed: " + this.attackSpeed);
