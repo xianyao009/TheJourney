@@ -43,8 +43,8 @@ public class EquipmentTab {
 	public void printInfo() {
 		System.out.println("Equipment tab");
 		System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
-		System.out.println("equipment.Weapon equipped: " + this.weapon.getName());
-		System.out.println("equipment.Armor equipped: " + this.armor.getName());
+		System.out.println("Weapon equipped: " + this.weapon.getName());
+		System.out.println("Armor equipped: " + this.armor.getName());
 		System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
 	}
 }
