@@ -17,7 +17,7 @@ public class Inventory {
     //private List<Usable> usableList;
 
     /**
-     * Creates an character.Inventory object
+     * Creates an Inventory object
      */
     public Inventory() {
         this.weaponList = new ArrayList<>();
