@@ -8,8 +8,9 @@ public enum Monster {
     GREENGOBLIN("Green goblin", "Goblin", 1, 8, 2, 2, 2),
     REDGOBLIN("Red goblin", "Goblin", 2, 12, 3, 2, 2),
     BLACKGOBLIN("Black goblin", "Goblin", 3, 15, 4, 3, 2),
-    GOLDGOBLIN("Gold goblin", "Goblin", 5, 20, 7, 5, 4),
-    GOBLINBOSS("Goblin boss", "Goblin", 100, 1000, 1000, 1000, 1000);
+    GOLDGOBLIN("Gold goblin", "Goblin", 5, 20, 7, 5, 2),
+    GOBLINBOSS("Goblin boss", "Goblin", 100, 1000, 1000, 1000, 1000),
+    BANDIT("Bandit", "Human", 6, 22, 10, 5, 3);
 
     private final String name;
     private final String species;
