@@ -2,7 +2,9 @@ package main;
 
 import character.Character;
 import combat.Battle;
+import equipment.Armor;
 import equipment.Weapon;
+import item.Potion;
 import monster.Monster;
 
 import java.util.*;
@@ -64,6 +66,18 @@ public class Story {
 	
 	// Main body of the game
 	public void body() {
+		// Just for debugging...
+		character.getInventory().addArmor(Armor.GOLDENPLATEARMOUR);
+		character.getInventory().addArmor(Armor.PLATEARMOUR);
+		character.getInventory().addWeapon(Weapon.WOODENAXE);
+		character.getInventory().addPotion(Potion.HEALTHPOTION);
+		character.getInventory().addPotion(Potion.HEALTHPOTION);
+		character.getInventory().addPotion(Potion.HEALTHPOTION);
+		character.getInventory().addPotion(Potion.ULTRAPOTION);
+		character.getInventory().addPotion(Potion.ULTRAPOTION);
+		character.equipWeapon(Weapon.WOODENSWORD);
+		//
+
 		Scanner scan = new Scanner(System.in);
 		text = ".\n.\n.\n.\n.\n.\n";
 		delayPrint(200);
@@ -72,24 +86,33 @@ public class Story {
 		Battle battle = new Battle(character, Monster.GREENGOBLIN);
 		while(battle.battleStatus()) {
 			battle.printBattleDetails();
-			text = "What will you do?\n1. Attack | 2. Inventory\nEnter '1' to attack or '2' to open your inventory: ";
+			text = "What will you do?\n1. Attack | 2. Use potion\nEnter '1' to attack or '2' to use potion: ";
 			delayPrint(50);
 			choice = scan.nextLine();
 			if (choice.equals("1")) {
 				text = battle.attack();
 				delayPrint(50);
 			} else if (choice.equals("2")) {
-				//battle.openInventory();
-				text = "Will implement the open inventory feature in the future...\n";
+				if (battle.getCharacterRemainingHealth() >= character.getHealth()) {
+					text = "You can't use a potion when you're at full health!";
+					delayPrint(50);
+					continue;
+				}
+				battle.showPotion();
+				text = "Which potion do you want to use?\nEnter the number correspondent to the potion to use it: ";
 				delayPrint(50);
-				break;
+				choice = scan.nextLine();
+				text = battle.usePotion(Integer.parseInt(choice));
+				delayPrint(50);
+				text = battle.monsterAttack();
+				delayPrint(50);
 			}
 		}
 		if (!battle.battleStatus()) {
 			text = battle.died() + " died!\n";
 			delayPrint(50);
 		}
-		text = "It's 11:52pm.... I need to go to bed... By Xian Yao Ng";
+		text = "Time to sleep... Xian Yao Ng";
 		delayPrint(50);
 	}
 
@@ -99,7 +122,6 @@ public class Story {
 	 * @param ms The time interval in milliseconds
 	 */
 	public void delayPrint(int ms) {
-		// System.out.println(text);
 		for(char c : text.toCharArray()) {
 			System.out.print(c);
 			try {
