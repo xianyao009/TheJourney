@@ -2,9 +2,9 @@ package character;
 
 import equipment.Armor;
 import equipment.Weapon;
+import item.Potion;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 
 /**
  * Represents an inventory (act like a backpack to store items)
@@ -13,7 +13,7 @@ import java.util.List;
 public class Inventory {
     private final List<Weapon> weaponList;
     private final List<Armor> armorList;
-    //private List<Potion> potionList;
+    private final Map<Potion, Integer> potionMap;
     //private List<Usable> usableList;
 
     /**
@@ -22,7 +22,7 @@ public class Inventory {
     public Inventory() {
         this.weaponList = new ArrayList<>();
         this.armorList = new ArrayList<>();
-//        this.potionList = new ArrayList<>();
+        this.potionMap = new LinkedHashMap<>();
     }
 
     /**
@@ -41,9 +41,9 @@ public class Inventory {
         return armorList;
     }
 
-//    public List<Potion> getPotionList() {
-//        return potionList;
-//    }
+    public Map<Potion, Integer> getPotionMap() {
+        return potionMap;
+    }
 
 //    public List<Usable> getUsableList() {
 //        return usableList;
@@ -65,6 +65,23 @@ public class Inventory {
         this.armorList.add(armor);
     }
 
+    public void addPotion(Potion potion) {
+        if (!potionMap.containsKey(potion)) {
+            this.potionMap.put(potion, 1);
+        } else {
+            this.potionMap.put(potion, potionMap.get(potion) + 1);
+        }
+    }
+
+    public void showPotion() {
+        int count = 1;
+        System.out.println("\nPotion in inventory: ");
+        for (HashMap.Entry<Potion, Integer> p : potionMap.entrySet()) {
+            System.out.println(count + ". " + p.getKey().getName() + " X" + p.getValue() + " " + p.getKey().getEffect());
+            count++;
+        }
+    }
+
     /**
      * Print out the info of inventory
      */
@@ -80,15 +97,18 @@ public class Inventory {
         count = 1;
         System.out.println("\nArmor in inventory: ");
         for (Armor  a : armorList) {
-            System.out.println(count + "." + a.getName());
+            System.out.println(count + ". " + a.getName());
+            count++;
+        }
+
+        count = 1;
+        System.out.println("\nPotion in inventory: ");
+        for (HashMap.Entry<Potion, Integer> p : potionMap.entrySet()) {
+            System.out.println(count + ". " + p.getKey().getName() + " X" + p.getValue());
             count++;
         }
         System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
     }
-
-//    public void addPotion(Potion potion) {
-//        this.potionList.add(potion);
-//    }
 
 //    public void addUsable(Usable usable) {
 //        this.usableList.add(usable);
