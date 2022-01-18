@@ -6,9 +6,11 @@ import character.Character;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 import java.util.Set;
 
 /**
+ *
  * @author Xian Yao Ng
  */
 public class Battle {
@@ -33,6 +35,11 @@ public class Battle {
         this.characterRemainingHealth = characterRemainingHealth;
     }
 
+    /**
+     * Creates a Battle object
+     * @param character The character who participates in the battle
+     * @param monster The monster who participates in the battle
+     */
     public Battle(Character character, Monster monster) {
         this.character = character;
         this.monster = monster;
@@ -75,17 +82,36 @@ public class Battle {
 
     public String usePotion(int i) {
         i--;
+        String text;
+        Map<Potion, Integer> potionMap = character.getInventory().getPotionMap();
         Set<Potion> potion = character.getInventory().getPotionMap().keySet();
         List<Potion> potionList = new ArrayList<>(potion);
-        character.getInventory().getPotionMap().put(potionList.get(i), character.getInventory().getPotionMap().get(potionList.get(i)) - 1);
-        characterRemainingHealth += potionList.get(i).getAmount();
-        if (characterRemainingHealth > character.getHealth()) {
-            characterRemainingHealth = character.getHealth();
+        try {
+            text = "You used " + potionList.get(i).getName() + " and your health was restored by ";
+            if (potionMap.get(potionList.get(i)) > 1) {
+                potionMap.put(potionList.get(i), potionMap.get(potionList.get(i)) - 1);
+            } else if (potionMap.get(potionList.get(i)) == 1) {
+                potionMap.remove(potionList.get(i));
+            }
+
+            int amountRestored;
+            if (potionList.get(i).getAmount() + characterRemainingHealth > character.getHealth()) {
+                amountRestored = character.getHealth() - characterRemainingHealth;
+            } else {
+                amountRestored = potionList.get(i).getAmount();
+            }
+            text += amountRestored;
+            characterRemainingHealth += amountRestored;
+        } catch (IndexOutOfBoundsException e) {
+            text = "Please enter only the number correspondent to the potion";
         }
 
-        return "You used " + potionList.get(i).getName() + "!\n";
+        return text + "!\n";
     }
 
+    /**
+     * @return true if both character and monster are still alive. Otherwise, false.
+     */
     public boolean battleStatus() {
         return characterRemainingHealth > 0 && monsterRemainingHealth > 0;
     }
