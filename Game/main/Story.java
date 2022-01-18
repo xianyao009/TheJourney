@@ -10,7 +10,7 @@ import monster.Monster;
 import java.util.*;
 
 /**
- * Main.Main story line of game
+ * Main story line of the game
  * @author Xian Yao Ng
  */
 public class Story {
@@ -60,7 +60,7 @@ public class Story {
 			}
 		} while (true);
 
-		text = "\nNice choice! Now, go take some rest. You'll start your journey the next day.";
+		text = "\nNice choice!\n*Summons a Green goblin*\nTry your new weapon by defeating the goblin!\n";
 		delayPrint(50);
     }
 	
@@ -75,15 +75,26 @@ public class Story {
 		character.getInventory().addPotion(Potion.HEALTHPOTION);
 		character.getInventory().addPotion(Potion.ULTRAPOTION);
 		character.getInventory().addPotion(Potion.ULTRAPOTION);
-		character.equipWeapon(Weapon.WOODENSWORD);
+		//character.equipWeapon(Weapon.WOODENSWORD);
 		//
 
-		Scanner scan = new Scanner(System.in);
 		text = ".\n.\n.\n.\n.\n.\n";
 		delayPrint(200);
 		text = "You encountered a Green goblin!";
 		delayPrint(50);
 		Battle battle = new Battle(character, Monster.GREENGOBLIN);
+		startBattle(battle);
+
+		text = "Time to sleep... Xian Yao Ng";
+		delayPrint(50);
+	}
+
+	/**
+	 * Start the battle
+	 * @param battle The battle between character and monster
+	 */
+	public void startBattle(Battle battle) {
+		Scanner scan = new Scanner(System.in);
 		while(battle.battleStatus()) {
 			battle.printBattleDetails();
 			text = "What will you do?\n1. Attack | 2. Use potion\nEnter '1' to attack or '2' to use potion: ";
@@ -94,7 +105,7 @@ public class Story {
 				delayPrint(50);
 			} else if (choice.equals("2")) {
 				if (battle.getCharacterRemainingHealth() >= character.getHealth()) {
-					text = "You can't use a potion when you're at full health!";
+					text = "You can't use potion when you're at full health!";
 					delayPrint(50);
 					continue;
 				}
@@ -104,15 +115,16 @@ public class Story {
 				choice = scan.nextLine();
 				text = battle.usePotion(Integer.parseInt(choice));
 				delayPrint(50);
+				if (text.equals("Please enter only the number correspondent to the potion!\n")) {
+					continue;
+				}
 				text = battle.monsterAttack();
 				delayPrint(50);
+			} else {
+				text = "Please enter only the number correspondent to the action!\n";
 			}
 		}
-		if (!battle.battleStatus()) {
-			text = battle.died() + " died!\n";
-			delayPrint(50);
-		}
-		text = "Time to sleep... Xian Yao Ng";
+		text = "\n" + battle.died() + " died!\n";
 		delayPrint(50);
 	}
 
