@@ -1,7 +1,7 @@
 package main;
 
 /**
- * Main.Main class to run the program
+ * Main class to run the program
  * @author Xian Yao Ng
  */
 public class Main {
