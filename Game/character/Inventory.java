@@ -13,7 +13,7 @@ import java.util.*;
 public class Inventory {
     private final List<Weapon> weaponList;
     private final List<Armor> armorList;
-    private final Map<Potion, Integer> potionMap;
+    private final Map<Potion, Integer> potionMap; // Potion:quantity
     //private List<Usable> usableList;
 
     /**
@@ -27,7 +27,7 @@ public class Inventory {
 
     /**
      * Gets the list of weapon the character owned
-     * @return An ArrayList representing the list of weapon the character owned
+     * @return An ArrayList representing the list of weapon which the character owned
      */
     public List<Weapon> getWeaponList() {
         return weaponList;
@@ -35,12 +35,16 @@ public class Inventory {
 
     /**
      * Gets the list of armor the character owned
-     * @return An ArrayList representing the list of armor the character owned
+     * @return An ArrayList representing the list of armor which the character owned
      */
     public List<Armor> getArmorList() {
         return armorList;
     }
 
+    /**
+     * Gets the list of potion the character owned
+     * @return  A LinkedHashMap representing the potion which the character owned
+     */
     public Map<Potion, Integer> getPotionMap() {
         return potionMap;
     }
@@ -65,6 +69,10 @@ public class Inventory {
         this.armorList.add(armor);
     }
 
+    /**
+     * Add potion into the inventory (LinkedHashMap)
+     * @param potion The potion to be added into the inventory (LinkedHashMap Potion:quantity)
+     */
     public void addPotion(Potion potion) {
         if (!potionMap.containsKey(potion)) {
             this.potionMap.put(potion, 1);
@@ -73,6 +81,9 @@ public class Inventory {
         }
     }
 
+    /**
+     * Open inventory and print out the potion which the user owned
+     */
     public void showPotion() {
         int count = 1;
         System.out.println("\nPotion in inventory: ");
