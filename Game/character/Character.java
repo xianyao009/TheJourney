@@ -146,7 +146,7 @@ public class Character {
         System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
         System.out.println("Name: " + name);
         System.out.println("Race: " + race);
-	System.out.println("Class: " + charClass);
+	    System.out.println("Class: " + charClass);
         System.out.println("Level: " + level);
         System.out.println("Health: " + health);
         System.out.println("Attack: " + attack);
