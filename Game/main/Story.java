@@ -8,6 +8,7 @@ import item.Potion;
 import monster.Monster;
 
 import java.util.*;
+import java.util.stream.IntStream;
 
 /**
  * Main story line of the game
@@ -60,24 +61,16 @@ public class Story {
 			}
 		} while (true);
 
-		text = "\nNice choice!\n*Summons a Green goblin*\nTry your new weapon by defeating the goblin!\n";
+		text = "\nNice choice!\nHere are some potions that can help you in the combat...\nYou obtained 3 Health potion!";
+		delayPrint(50);
+		IntStream.range(0, 3).forEach(i -> character.getInventory().addPotion(Potion.HEALTHPOTION));
+
+		text = "\n*Summons a Green goblin*\nTry your new weapon by defeating the goblin!\n";
 		delayPrint(50);
     }
 	
 	// Main body of the game
 	public void body() {
-		// Just for debugging...
-		character.getInventory().addArmor(Armor.GOLDENPLATEARMOUR);
-		character.getInventory().addArmor(Armor.PLATEARMOUR);
-		character.getInventory().addWeapon(Weapon.WOODENAXE);
-		character.getInventory().addPotion(Potion.HEALTHPOTION);
-		character.getInventory().addPotion(Potion.HEALTHPOTION);
-		character.getInventory().addPotion(Potion.HEALTHPOTION);
-		character.getInventory().addPotion(Potion.ULTRAPOTION);
-		character.getInventory().addPotion(Potion.ULTRAPOTION);
-		//character.equipWeapon(Weapon.WOODENSWORD);
-		//
-
 		text = ".\n.\n.\n.\n.\n.\n";
 		delayPrint(200);
 		text = "You encountered a Green goblin!";
@@ -106,6 +99,10 @@ public class Story {
 			} else if (choice.equals("2")) {
 				if (battle.getCharacterRemainingHealth() >= character.getHealth()) {
 					text = "You can't use potion when you're at full health!";
+					delayPrint(50);
+					continue;
+				} else if (character.getInventory().getPotionMap().isEmpty()) {
+					text = "You have used up all your potions!";
 					delayPrint(50);
 					continue;
 				}
